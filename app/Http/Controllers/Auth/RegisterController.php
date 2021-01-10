@@ -38,7 +38,7 @@ class RegisterController extends Controller
      */
     public function __construct()
     {
-        $this->middleware('guest');
+        $this->middleware('guest') -> except('showAllUser');
     }
 
     /**
@@ -79,4 +79,14 @@ class RegisterController extends Controller
             'photo' => $unique_file_name,
         ]);
     }
-}
+
+    /**
+     * S
+     */
+    public function showAllUser()
+    {
+        //$all_users = User::latest() -> get();
+        $all_users = User::latest() -> paginate(2);
+        return view('users', compact('all_users'));
+    }
+} //End of class RegisterController extends Controller

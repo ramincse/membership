@@ -5,7 +5,7 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header">{{ __('Dashboard') }}</div>
+                <div class="card-header">{{ __('Dashboard') }}<a class="btn btn-sm btn-primary float-right" href="{{ url('users') }}">All users</a></div>
 
                 <div class="card-body">
                     <div class="profile">
