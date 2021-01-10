@@ -58,4 +58,12 @@ class LoginController extends Controller
             ? new JsonResponse([], 204)
             : redirect('/login');
     }
+
+    public function username()
+    {
+        $login_data = request() -> input('login-data');
+        $login_type = 'uname';
+        request() -> merge( [$login_type => $login_data] );
+        return $login_type;
+    }
 }
