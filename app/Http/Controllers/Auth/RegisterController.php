@@ -62,14 +62,21 @@ class RegisterController extends Controller
      * @param  array  $data
      * @return \App\Models\User
      */
-    protected function create(array $data)
+    protected function create($data)
     {
+        $unique_file_name = 'avatar.jpg';
+        if( $data -> hasFile('photo') ){
+            $img = $data -> file('photo');
+            $unique_file_name = md5( time() . rand() ) . '.' . $img -> getClientOriginalExtension();
+            $img -> move( public_path('media/photos/users/'), $unique_file_name );
+        }
         return User::create([
-            'name'  => $data['name'],
-            'cell'  => $data['cell'],
-            'uname' => $data['uname'],
-            'email' => $data['email'],
-            'password' => Hash::make($data['password']),
+            'name'  => $data -> name,
+            'uname' => $data -> uname,
+            'cell'  => $data -> cell,
+            'email' => $data -> email,
+            'password' => Hash::make($data -> password),
+            'photo' => $unique_file_name,
         ]);
     }
 }
