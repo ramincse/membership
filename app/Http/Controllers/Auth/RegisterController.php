@@ -29,7 +29,8 @@ class RegisterController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = RouteServiceProvider::HOME;
+    //protected $redirectTo = RouteServiceProvider::HOME;
+    protected $redirectTo = RouteServiceProvider::DASH;
 
     /**
      * Create a new controller instance.
@@ -38,7 +39,7 @@ class RegisterController extends Controller
      */
     public function __construct()
     {
-        $this->middleware('guest') -> except('showAllUser');
+        $this->middleware('guest') -> except(['showAllUser', 'showDashboard']);
     }
 
     /**
@@ -88,5 +89,13 @@ class RegisterController extends Controller
         //$all_users = User::latest() -> get();
         $all_users = User::latest() -> paginate(2);
         return view('users', compact('all_users'));
+    }
+
+    /**
+     * Show Dashboard
+     */
+    public function showDashboard()
+    {
+        return view('dashboard');
     }
 } //End of class RegisterController extends Controller

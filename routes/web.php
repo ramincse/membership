@@ -26,3 +26,7 @@ Auth::routes();
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 Route::get('users', 'App\Http\Controllers\Auth\RegisterController@showAllUser');
+
+Route::get('dashboard', 'App\Http\Controllers\Auth\RegisterController@showDashboard') -> name('user.dashboard');
+
+Route::resource('role', 'App\Http\Controllers\RoleController');

@@ -5,7 +5,10 @@
     <div class="row justify-content-center">
         <div class="col-md-12">
             <div class="card">
-                <div class="card-header">{{ __('Dashboard') }}<a class="btn btn-sm btn-primary float-right" href="">All users</a></div>
+                <div class="card-header">{{ __('Dashboard') }}
+                    <a class="btn btn-sm btn-primary float-right ml-1" href="{{ url('home') }}">Profile</a>
+                    <a class="btn btn-sm btn-primary float-right ml-1" href="{{ route('user.dashboard') }}">Dashboard</a>
+                </div>
 
                 <div class="card-body">
                     <h2>All registered users</h2>
