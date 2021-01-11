@@ -14,19 +14,19 @@
                         </div>
                         <div class="form-group">
                             <label for="">Username</label>
-                            <input name="name" class="form-control" type="text">
-                        </div>
-                        <div class="form-group">
-                            <label for="">Cell</label>
-                            <input name="name" class="form-control" type="text">
+                            <input name="uname" class="form-control" type="text">
                         </div>
                         <div class="form-group">
                             <label for="">Email</label>
-                            <input name="name" class="form-control" type="text">
+                            <input name="email" class="form-control" type="text">
+                        </div>
+                        <div class="form-group">
+                            <label for="">Cell</label>
+                            <input name="cell" class="form-control" type="text">
                         </div>
                         <div class="form-group">
                             <label for="">Role</label>
-                            <select name="" id="" class="form-control">
+                            <select name="role" id="" class="form-control">
                                 @foreach($roles as $role)
                                     <option value="{{ $role -> id }}">{{ $role -> name }}</option>
                                 @endforeach

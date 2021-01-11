@@ -18,16 +18,24 @@
                     </tr>
                 </thead>
                 <tbody>
+                @foreach($users as $user)
                     <tr>
-                        <td>1</td>
-                        <td>admin</td>
-                        <td>admin</td>
-                        <td>post | role</td>
+                        <td>{{ $loop -> index + 1 }}</td>
+                        <td>{{ $user -> name }}</td>
+                        <td>{{ $user -> role -> name }}</td>
+                        <td>
+                            @if( json_decode($user -> role -> permission) > 0 )
+                            @foreach( json_decode($user -> role -> permission) as $per )
+                            {{ $per }} |
+                            @endforeach
+                            @endif
+                        </td>
                         <td>
                             <a class="btn btn-sm btn-info" href="">Edit</a>
                             <a class="btn btn-sm btn-danger" href="">Delete</a>
                         </td>
                     </tr>
+                @endforeach
                 </tbody>
             </table>
         </div>
