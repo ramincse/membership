@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Role;
 use Illuminate\Http\Request;
 
 class UserController extends Controller
@@ -23,7 +24,10 @@ class UserController extends Controller
      */
     public function create()
     {
-        //
+        $roles = Role::all();
+        return view('user.create', [
+            'roles' => $roles,
+        ]);
     }
 
     /**

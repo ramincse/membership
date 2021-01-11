@@ -19,7 +19,7 @@
                 <tbody>
                     @foreach ($roles as $role)
                     <tr>
-                        <td>1</td>
+                        <td>{{ $loop -> index + 1 }}</td>
                         <td>{{ $role -> name }}</td>
                         <td>
                             @if ( json_decode($role -> permission) > 0 )                            
