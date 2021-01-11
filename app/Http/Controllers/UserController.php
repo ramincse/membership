@@ -2,10 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Role;
 use Illuminate\Http\Request;
 
-class RoleController extends Controller
+class UserController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,10 +13,7 @@ class RoleController extends Controller
      */
     public function index()
     {
-        $all_roles = Role::all();
-        return view('role.index', [
-            'roles' => $all_roles,
-        ]);
+        return view('user.index');
     }
 
     /**
@@ -27,7 +23,7 @@ class RoleController extends Controller
      */
     public function create()
     {
-        return view('role.create');
+        //
     }
 
     /**
@@ -38,14 +34,7 @@ class RoleController extends Controller
      */
     public function store(Request $request)
     {
-        //Convert Array to JSON
-        $permission = json_encode($request -> per);
-        //Data sent to database
-        Role::create([
-            'name'          => $request -> name,
-            'permission'    => $permission,
-        ]);
-        return redirect() -> route('role.index'); // -> route('role.index')
+        //
     }
 
     /**

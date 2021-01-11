@@ -30,3 +30,5 @@ Route::get('users', 'App\Http\Controllers\Auth\RegisterController@showAllUser');
 Route::get('dashboard', 'App\Http\Controllers\Auth\RegisterController@showDashboard') -> name('user.dashboard');
 
 Route::resource('role', 'App\Http\Controllers\RoleController');
+
+Route::resource('user', 'App\Http\Controllers\UserController');

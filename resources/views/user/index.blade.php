@@ -3,37 +3,31 @@
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
-            <h2>All Roles</h2>
-            <a class="btn btn-sm btn-primary" href="{{ route('role.create') }}">Add new role</a>
+            <h2>All Users</h2>
+            <a class="btn btn-sm btn-primary" href="{{ route('user.create') }}">Add new user</a>
             <br>
             <br>
             <table class="table table-striped">
                 <thead>
                     <tr>
                         <th>#</th>
-                        <th>Role Name</th>
+                        <th>Name</th>
+                        <th>Role</th>
                         <th>Permission</th>
                         <th>Action</th>
                     </tr>
                 </thead>
                 <tbody>
-                    @foreach ($roles as $role)
                     <tr>
                         <td>1</td>
-                        <td>{{ $role -> name }}</td>
-                        <td>
-                            @if ( json_decode($role -> permission) > 0 )                            
-                            @foreach ( json_decode($role -> permission) as $per )
-                                {{ $per }} -
-                            @endforeach
-                            @endif
-                        </td>
+                        <td>admin</td>
+                        <td>admin</td>
+                        <td>post | role</td>
                         <td>
                             <a class="btn btn-sm btn-info" href="">Edit</a>
                             <a class="btn btn-sm btn-danger" href="">Delete</a>
                         </td>
                     </tr>
-                    @endforeach
                 </tbody>
             </table>
         </div>
