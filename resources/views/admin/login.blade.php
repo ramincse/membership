@@ -13,18 +13,21 @@
 	
 
 	<div class="wrap">
-		<a href=""></a>
 		<div class="card shadow">
 			<div class="card-body">
 				<h2>Admin Login</h2>
-				<form action="">
+				@if ( $errors -> any() )
+				<p class="alert alert-danger">{{ $errors -> first() }}<button class="close" data-dismiss="alert">&times;</button></p>					
+				@endif
+				<form action="{{ route('admin.login') }}" method="POST">
+					@csrf
 					<div class="form-group">
 						<label for="">Email / Username</label>
-						<input class="form-control" type="text">
+						<input name="email" class="form-control" type="text">
 					</div>
 					<div class="form-group">
 						<label for="">Password</label>
-						<input class="form-control" type="password">
+						<input name="password" class="form-control" type="password">
 					</div>
 					<div class="form-group">
 						<input class="btn btn-primary" type="submit" value="Log In">

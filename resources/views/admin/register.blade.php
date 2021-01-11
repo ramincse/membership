@@ -16,30 +16,31 @@
 		<div class="card shadow">
 			<div class="card-body">
 				<h2>Ceate an account</h2>
-				<form action="">
+				<form action="{{ route('admin.register') }}" method="POST" enctype="multipart/form-data">
+					@csrf
 					<div class="form-group">
 						<label for="">Name</label>
-						<input class="form-control" type="text">
+						<input name="name" class="form-control" type="text">
 					</div>
 					<div class="form-group">
 						<label for="">Email</label>
-						<input class="form-control" type="text">
+						<input name="email" class="form-control" type="text">
 					</div>
 					<div class="form-group">
 						<label for="">Cell</label>
-						<input class="form-control" type="text">
+						<input name="cell" class="form-control" type="text">
 					</div>
 					<div class="form-group">
 						<label for="">Username</label>
-						<input class="form-control" type="text">
+						<input name="uname" class="form-control" type="text">
 					</div>
 					<div class="form-group">
 						<label for="">Password</label>
-						<input class="form-control" type="password">
+						<input name="pass" class="form-control" type="password">
 					</div>
 					<div class="form-group">
 						<label for="">Photo</label>
-						<input class="form-control-file" type="file">
+						<input name="photo" class="form-control-file" type="file">
 					</div>
 					<div class="form-group">
 						<input class="btn btn-primary" type="submit" value="Register Now">
